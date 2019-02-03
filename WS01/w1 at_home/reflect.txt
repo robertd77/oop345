@@ -1,0 +1,20 @@
+/*********************************
+
+Name: Hyunjung Kim
+
+Student Number: 148297179
+
+*********************************/
+
+
+• the difference between internal and external linkage using examples from your code 
+I can use the variable INITIAL which is defined in w1.cpp for the "String.cpp" with external linkage(extern). When I declared extern, that means I can use the variable that is declared in another translation unit. 
+But the internal linkage(static) is that when I declared static, that means it is invisible in outside its own translation unit, so the static int num that I declared in the String.cpp is only used in String.cpp. 
+
+• the execution effect of the code in the process() function that creates the String object which is inserted into standard output (which member function(s) does this code call) 
+ The "String a = String(str);" inside function process() works as copy constructor even though we didn't declare the copy constructor, and then "std::cout << a << std::endl;" is used to display the string as ostream helper operator.
+
+• the changes that you made in upgrading your String class. 
+I changed the type of instance variable to the pointer(char*n_str) in the String.h and declared the destructor.
+And then I modified the definition of String(const char * str) in the String.cpp to add the dynamic memory of n_str. When the "str" is not empty, the dynamic memory(n_str) is created as length of the st, and else the n_str will be nullptr.
+To the destructor(~String()), the delete[] n_str is added to deallocate the previous memory(n_str)
