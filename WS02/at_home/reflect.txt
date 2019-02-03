@@ -1,0 +1,18 @@
+/*********************
+Name: Hyunjung Kim
+Student No: 148297179
+**********************/
+
+• the reason for the difference between the copy and move operations 
+For example, in this code "Text& Text:: operator = (const Text& obj)", copy operator copies the object "obj" to "this" with all the instance variables, and the variable of obj will remain with all the variable after copy to this. But, the move operator literally moves the object from "obj" to "this" and will remove and initialize all the variable of obj after the move.
+
+• the dynamic allocation of addresses to objects instead of objects themselves
+Manipulating the addresses of the original objects are simply used to the copy and assignment object that will not longer to access in their original state or modified to a new state. Using address is an efficient alternative way to the copying of members that contain many elements.
+
+• the changes you made in upgrading your w2 and Text modules. 
+I added the move constructor and operator in the Text modules.
+Text::Text(Text&& src)
+Text& Text::operator = (Text&& src)
+It copied from the all the variables of src to this object variables, removed and initialize after copy.
+when I copied the variable "content",  I allocated dynamic memory and copied the "src.content" to the
+ "this->content" with for loop, and deallocated "src.content", assigned "nullptr" and then initialized 0 to the "src.line_num".
